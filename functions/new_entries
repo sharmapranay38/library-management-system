@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct student_info{
+    int st_id;
+    char name[15];
+    int book_id;
+    char date[15];
+}info;
+
+void get(info ptr[], int n){
+    
+    for(int i = 0; i < n; i++){
+        
+        printf("Enter name of student no. %d: ", (i+1));
+        scanf("%s", &ptr[i].name);
+        printf("Enter id: ");
+        scanf("%d", &ptr[i].st_id);
+        printf("Enter book id: ");
+        scanf("%d", &ptr[i].book_id);
+        printf("Enter date of issue: ");
+        scanf("%s", &ptr[i].date);
+        printf("Entry Added successfully!\n\n");
+    }
+}
+
+void display(info ptr[], int n){
+    printf("***ENTRIES***\n\n");
+    for(int i = 0; i < n; i++){
+        
+        printf("%s's Details\n", ptr[i].name);
+        printf("Id = %d\n", ptr[i].st_id);
+        printf("book id = %d\n", ptr[i].book_id);
+        printf("date = ");
+        puts(ptr[i].date);
+        printf("\n");
+    }
+}
+
+int main(){
+    int size;
+    printf("Enter number of entries:\n");
+    scanf("%d", &size);
+
+    info std[size];
+    get(std, size);
+    display(std, size);
+    
+    return 0;
+}
